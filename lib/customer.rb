@@ -14,7 +14,8 @@ class Customer
     total_amount, frequent_renter_points = 0, 0
     result = "Rental Record for #{@name}\n"
     @rentals.each do |element|
-      frequent_renter_points = element.movie.price_code == Movie::NEW_RELEASE && element.days_rented > 1 ? 2 : 1
+      # レンタルポイントを加算
+      frequent_renter_points += element.frequent_renter_points
       # このレンタルの料金を表示
       result += "\t" + element.movie.title + "\t" + element.charge.to_s + "\n"
       total_amount += element.charge
@@ -23,9 +24,5 @@ class Customer
     result += "Amount owed is #{total_amount}\n"
     result += "You earned #{frequent_renter_points} frequent renter points"
     result
-  end
-
-  def amount_for(rental)
-    rental.charge
   end
 end
