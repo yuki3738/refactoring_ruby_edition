@@ -42,4 +42,30 @@ RSpec.describe Customer do
       it { expect(subject.statement).to eq statement }
     end
   end
+
+  describe "#html_statement" do
+    before do
+      subject.add_rental(rental)
+    end
+
+    context 'when rented rsegular movie' do
+      let(:html_statement) { "<h1>Rentals for <em>#{name}</em></h1><p>\n\t#{movie.title}: 9.5<br>\n<p>You owed <em>9.5</em><p>\nOn this rental you earned <em>1</em> frequent renter points<p>" }
+
+      it { expect(subject.html_statement).to eq html_statement }
+    end
+
+    context 'when rented new movie' do
+      let(:movie) { Movie.new('New Movie', Movie::NEW_RELEASE) }
+      let(:html_statement) { "<h1>Rentals for <em>#{name}</em></h1><p>\n\t#{movie.title}: 21<br>\n<p>You owed <em>21</em><p>\nOn this rental you earned <em>2</em> frequent renter points<p>" }
+
+      it { expect(subject.html_statement).to eq html_statement }
+    end
+
+    context 'when rented childrens movie' do
+      let(:movie) { Movie.new('Childrens Movie', Movie::CHILDRENS) }
+      let(:html_statement) { "<h1>Rentals for <em>#{name}</em></h1><p>\n\t#{movie.title}: 7.5<br>\n<p>You owed <em>7.5</em><p>\nOn this rental you earned <em>1</em> frequent renter points<p>" }
+
+      it { expect(subject.html_statement).to eq html_statement }
+    end
+  end
 end
