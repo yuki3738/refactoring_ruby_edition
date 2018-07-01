@@ -1,6 +1,9 @@
 require './lib/movie.rb'
 require './lib/rental.rb'
 require './lib/customer.rb'
+require './lib/childrens_price.rb'
+require './lib/new_release_price.rb'
+require './lib/regular_price.rb'
 
 RSpec.describe Customer do
   let(:name) { 'Bob' }
