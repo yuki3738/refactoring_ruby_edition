@@ -1,3 +1,4 @@
+require './lib/default_price.rb'
 require './lib/movie.rb'
 require './lib/rental.rb'
 require './lib/customer.rb'
