@@ -1,12 +1,16 @@
 require './lib/movie.rb'
+require 'pry-byebug'
 
 RSpec.describe Movie do
   let(:title) { "Avatar" }
-  let(:price_code) { Movie::REGULAR }
-  subject { Movie.new(title, price_code) }
+  let(:regular_price) { RegularPrice.new }
+  let(:movie) { Movie.new(title, RegularPrice.new) }
 
   describe "#initialize" do
-    it { expect(subject.title).to eq title }
-    it { expect(subject.price_code).to eq price_code }
+    it { expect(movie.title).to eq title }
+    it do
+      movie.price = regular_price
+      expect(movie.price).to eq regular_price
+    end
   end
 end
