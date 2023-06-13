@@ -1,10 +1,10 @@
-require './lib/default_price.rb'
-require './lib/movie.rb'
-require './lib/rental.rb'
-require './lib/customer.rb'
-require './lib/childrens_price.rb'
-require './lib/new_release_price.rb'
-require './lib/regular_price.rb'
+require './Chapter1/lib/default_price.rb'
+require './Chapter1/lib/movie.rb'
+require './Chapter1/lib/rental.rb'
+require './Chapter1/lib/customer.rb'
+require './Chapter1/lib/childrens_price.rb'
+require './Chapter1/lib/new_release_price.rb'
+require './Chapter1/lib/regular_price.rb'
 
 RSpec.describe Customer do
   let(:name) { 'Bob' }

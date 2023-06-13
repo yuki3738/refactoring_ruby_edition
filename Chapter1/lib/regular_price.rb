@@ -1,3 +1,5 @@
+require './Chapter1/lib/default_price.rb'
+
 class RegularPrice
   include DefaultPrice
 

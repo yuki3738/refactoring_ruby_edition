@@ -1,4 +1,5 @@
-require './lib/movie.rb'
+require './Chapter1/lib/movie.rb'
+require './Chapter1/lib/regular_price.rb'
 require 'pry-byebug'
 
 RSpec.describe Movie do

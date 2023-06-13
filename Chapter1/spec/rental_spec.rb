@@ -1,5 +1,6 @@
-require './lib/movie.rb'
-require './lib/rental.rb'
+require './Chapter1/lib/movie.rb'
+require './Chapter1/lib/rental.rb'
+require './Chapter1/lib/regular_price.rb'
 
 RSpec.describe Rental do
   let(:movie) { Movie.new('Avatar', RegularPrice.new) }
